@@ -1,0 +1,86 @@
+ul {
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  padding: 0;
+  list-style-type: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-size: 24px;
+  scroll-behavior: smooth;
+}
+
+section {
+  height: 100vh;
+  width: 100%;
+  background-color: gray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#home {
+  background-color: lightgreen;
+}
+
+#about {
+  background-color: lightyellow;
+}
+
+#contact {
+  background-color: lightsalmon;
+}
+
+#footer {
+  background-color: lightblue;
+}
+
+nav {
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+}
+
+nav .container {
+  width: 90%;
+  /* 최대 1000px의 너비를 차지함 */
+  max-width: 1000px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+nav .container ul li {
+  display: inline-block;
+}
+
+nav .container ul li a {
+  display: inline-block;
+  padding: 10px 20px;
+}
+
+nav .container ul li.active {
+  background-color: crimson;
+  transition: background-color 0.3s ease;
+}
+
+nav .container ul li.active a {
+  color: #fff;
+}
