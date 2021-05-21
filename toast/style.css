@@ -1,0 +1,60 @@
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #ffa07a;
+}
+
+.toasts {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+}
+
+.toast {
+  background-color: #fff;
+  margin-top: 1rem;
+  margin-right: 1rem;
+  padding: 0.6rem 1.2rem;
+  position: relative;
+}
+
+.toast .line {
+  background-color: #48df48;
+  height: 5px;
+  width: 100%;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+  animation: shorten-line 2s linear forwards;
+}
+
+@keyframes shorten-line {
+  from {
+    width: 100%;
+  }
+  to {
+    width: 0%;
+  }
+}
+
+.btn {
+  background-color: darkcyan;
+  color: #fff;
+  padding: 1rem 1.2rem;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn:active {
+  transform: scale(0.95);
+}
