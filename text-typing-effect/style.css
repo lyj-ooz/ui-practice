@@ -1,0 +1,39 @@
+body {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: lightpink;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+h1 {
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+
+h1::after {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 75%;
+  background-color: red;
+  top: 50%;
+  right: -3px;
+  transform: translateY(-50%);
+  /* animation: name duration timing-function delay iteration-count direction fill-mode; */
+  animation: blink 0.5s steps(2, end) infinite;
+}
+
+@keyframes blink {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
