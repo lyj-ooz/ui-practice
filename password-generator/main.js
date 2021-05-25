@@ -59,9 +59,6 @@ function generatePassword(lower, upper, number, symbol, length) {
   const typesCount = lower + upper + number + symbol;
   const typesArr = [{ lower }, { upper }, { number }, { symbol }].filter(
     (type) => {
-      console.log("type: ", type);
-      console.log("type1: ", Object.values(type));
-      console.log("type1: ", Object.values(type) === true);
       // 각 object의 '값'만 추출한다.
       // return Object.values(type)[0] === true;
       return Object.values(type)[0];
@@ -72,11 +69,17 @@ function generatePassword(lower, upper, number, symbol, length) {
     return "";
   }
 
-  for (let i = 0; i < length; i += typesCount) {
-    typesArr.forEach((type) => {
-      const funcName = Object.keys(type)[0];
-      generatedPassword += randomFunc[funcName]();
-    });
+  // for (let i = 0; i < length; i += typesCount) {
+  //   typesArr.forEach((type) => {
+  //     const funcName = Object.keys(type)[0];
+  //     generatedPassword += randomFunc[funcName]();
+  //   });
+  // }
+
+  for (let i = 0; i < length; i++) {
+    let randomType = typesArr[Math.floor(Math.random() * typesArr.length)];
+    const funcName = Object.keys(randomType)[0];
+    generatedPassword += randomFunc[funcName]();
   }
 
   const finalPassword = generatedPassword.slice(0, length);
