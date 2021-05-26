@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>checkbox slider</title>
+    <style>
+      body {
+        --bg-color: #fefefe;
+        --txt-color: #000;
+
+        background-color: var(--bg-color);
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 1s ease;
+      }
+      body.dark {
+        --bg-color: #333;
+        --txt-color: #d4d898;
+        transition: background-color 1s ease;
+      }
+
+      .toggle-container {
+        margin-top: 5rem;
+        display: flex;
+        align-items: center;
+      }
+      .toggle-container #toggle {
+        visibility: hidden;
+      }
+      .toggle-container label {
+        width: 53px;
+        height: 30px;
+        background-color: #d0d0d0;
+        margin-right: 0.5rem;
+        border-radius: 50px;
+        cursor: pointer;
+        position: relative;
+      }
+      .toggle-container .ball {
+        width: 30px;
+        height: 30px;
+        background-color: #fff;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        left: 0%;
+        transform: scale(0.8);
+        animation: toggleOff 0.3s linear forwards;
+      }
+      .toggle-container span {
+        color: var(--txt-color);
+      }
+
+      #toggle:checked + label {
+        background-color: #a705a7;
+      }
+      #toggle:checked + label .ball {
+        animation: toggleOn 0.3s linear forwards;
+      }
+
+      @keyframes toggleOn {
+        from {
+          left: 0;
+        }
+        to {
+          left: 43%;
+        }
+      }
+
+      @keyframes toggleOff {
+        from {
+          left: 43%;
+        }
+        to {
+          left: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="toggle-container">
+      <input type="checkbox" name="toggle" id="toggle" />
+      <label for="toggle">
+        <div class="ball"></div>
+      </label>
+      <span>dark</span>
+    </div>
+
+    <script>
+      const toggle = document.getElementById("toggle");
+      toggle.addEventListener("change", toggleMode);
+
+      function toggleMode() {
+        console.log(toggle.checked);
+        if (toggle.checked) {
+          document.body.classList.add("dark");
+        } else {
+          document.body.classList.remove("dark");
+        }
+      }
+    </script>
+  </body>
+</html>
